@@ -4,34 +4,35 @@
   <title>State Selector Form</title>
 </head>
 <body>
-  <h2>Select Your State</h2>
-  <form action= "https://brickwalllax.app.n8n.cloud/webhook-test/ submit-form" method="POST">
+    <h2>Select Your State</h2>
+    <form action= "https://brickwalllax.app.n8n.cloud/webhook-test/ submit-form" method="POST">
     <label for="state">State:</label>
     <select name="state" id="stateSelect"></select>
     <br><br>
+        
+    <label for="address">Full Address:</label>
+    <input type="text" id="address" name="address" required placeholder="123 Main St, City, ST ZIP">
+    <br><br>
+        
     <input type="submit" value="Submit">
-  </form>
-
-  <script>
-    const states = [
-      "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
-      "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho",
-      "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
-      "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
-      "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada",
-      "New Hampshire", "New Jersey", "New Mexico", "New York",
-      "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
-      "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
-      "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
-      "West Virginia", "Wisconsin", "Wyoming"
+    </form>
+        
+    <script>
+    const stateAbbreviations = [
+        "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+        "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+        "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+        "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
     ];
+    
     const select = document.getElementById("stateSelect");
-    states.forEach(state => {
-      const option = document.createElement("option");
-      option.value = state;
-      option.textContent = state;
-      select.appendChild(option);
+    stateAbbreviations.forEach(abbr => {
+        const option = document.createElement("option");
+        option.value = abbr;
+        option.textContent = abbr;
+        select.appendChild(option);
     });
-  </script>
+    </script>
 </body>
 </html>
